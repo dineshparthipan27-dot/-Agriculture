@@ -28,85 +28,389 @@
             --warning-light: #fef3c7;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
-        .layout { display: flex; min-height: 100vh; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
 
-       
-        .sidebar { width: 280px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: fixed; height: 100vh; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; }
-        .logo { display: flex; align-items: center; justify-content: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
-        .logo img { width: 180px; }
-        .nav-menu { padding: 20px 15px; list-style: none; flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
-        .nav-item { padding: 15px 20px; margin-bottom: 8px; border-radius: 12px; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 15px; font-weight: 600; cursor: pointer; transition: 0.2s; }
-        .nav-item i { font-size: 18px; width: 24px; text-align: center; }
-        .nav-item:hover, .nav-item.active { background: var(--primary-light); color: var(--primary-dark); }
-        .logout-btn { margin-top: auto; color: var(--danger); border: 1px solid var(--danger-light); background: var(--danger-light); }
-        .logout-btn:hover { background: var(--danger); color: white; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
 
-        
-        .main-content { margin-left: 280px; flex: 1; display: flex; flex-direction: column; width: calc(100% - 280px); }
-        .header { background: var(--surface); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 90; }
-        .greeting h1 { font-size: 20px; color: var(--text-main); }
-        .greeting p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
-        .profile-widget { display: flex; align-items: center; gap: 15px; }
-        .user-details { text-align: right; }
-        .user-details strong { display: block; font-size: 15px; color: var(--text-main); }
-        .user-details span { display: block; font-size: 12px; color: var(--text-muted); }
-        .profile-img { width: 45px; height: 45px; background: var(--secondary-light); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; }
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
 
-       
-        .view-section { display: none; padding: 20px 30px; animation: slideUp 0.4s ease forwards; }
-        .view-section.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 25px; }
 
-       
-        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-        .card-title { font-size: 17px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
-        
-        .data-list { list-style: none; }
-        .data-list li { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--border); }
-        .data-list li:last-child { border-bottom: none; }
-        
-        .badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-        .badge.safe { background: var(--secondary-light); color: var(--secondary); }
-        .badge.low { background: var(--danger-light); color: var(--danger); }
-        .badge.warning { background: var(--warning-light); color: var(--warning); }
-        .badge.info { background: var(--info-light); color: var(--info); }
-        
-        .btn { padding: 8px 16px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 14px; }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: var(--primary-dark); }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-        
-        .progress-bar-bg { width: 100%; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 5px; }
-        a { text-decoration: none; }
+        .sidebar {
+            width: 280px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
 
-       
-        .menu-btn { display: none; font-size: 22px; background: none; border: none; color: var(--primary-dark); cursor: pointer; }
-        .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 95; }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo img {
+            width: 180px;
+        }
+
+        .nav-menu {
+            padding: 20px 15px;
+            list-style: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            margin-bottom: 8px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-item i {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .logout-btn {
+            margin-top: auto;
+            color: var(--danger);
+            border: 1px solid var(--danger-light);
+            background: var(--danger-light);
+        }
+
+        .logout-btn:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 280px);
+        }
+
+        .header {
+            background: var(--surface);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .greeting h1 {
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        .greeting p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .profile-widget {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-details {
+            text-align: right;
+        }
+
+        .user-details strong {
+            display: block;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .user-details span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .profile-img {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary-light);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        .view-section {
+            display: none;
+            padding: 20px 30px;
+            animation: slideUp 0.4s ease forwards;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-list {
+            list-style: none;
+        }
+
+        .data-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .data-list li:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge.safe {
+            background: var(--secondary-light);
+            color: var(--secondary);
+        }
+
+        .badge.low {
+            background: var(--danger-light);
+            color: var(--danger);
+        }
+
+        .badge.warning {
+            background: var(--warning-light);
+            color: var(--warning);
+        }
+
+        .badge.info {
+            background: var(--info-light);
+            color: var(--info);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        .menu-btn {
+            display: none;
+            font-size: 22px;
+            background: none;
+            border: none;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 95;
+        }
 
         @media (max-width: 992px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.active { transform: translateX(0); }
-            .sidebar-overlay.active { display: block; }
-            .main-content { margin-left: 0; width: 100%; }
-            .menu-btn { display: block; }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .menu-btn {
+                display: block;
+            }
         }
+
         @media (max-width: 768px) {
-            .view-section { padding: 15px; }
-            .grid-3, .grid-2 { grid-template-columns: 1fr; }
-            .header { padding: 15px; }
-            .card { padding: 18px; }
+            .view-section {
+                padding: 15px;
+            }
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 18px;
+            }
         }
+
         @media (max-width: 480px) {
-            .greeting h1 { font-size: 18px; }
-            .user-details { display: none; }
-            .profile-img { width: 35px; height: 35px; font-size: 16px; }
-            .fin-chart { overflow-x: scroll; }
+            .greeting h1 {
+                font-size: 18px;
+            }
+
+            .user-details {
+                display: none;
+            }
+
+            .profile-img {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            .fin-chart {
+                overflow-x: scroll;
+            }
         }
     </style>
 </head>
@@ -115,21 +419,27 @@
     <div class="layout">
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-       
+
         <aside class="sidebar" id="sidebar">
             <div class="logo">
-                <img src="./asset/logo.png" alt="Company Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150x50?text=Kisan+Connect'">
+                <img src="./asset/logo.png" alt="Company Logo" class="logo-img"
+                    onerror="this.src='https://via.placeholder.com/150x50?text=Kisan+Connect'">
             </div>
             <ul class="nav-menu">
-                <li class="nav-item active" data-target="home-view"><i class="fa-solid fa-cloud-sun"></i> Weather & Crops</li>
-                <li class="nav-item" data-target="inventory-view"><i class="fa-solid fa-boxes-stacked"></i> Inventory & Assets</li>
-                <li class="nav-item" data-target="finance-view"><i class="fa-solid fa-indian-rupee-sign"></i> Finances</li>
-                <li class="nav-item" data-target="community-view"><i class="fa-solid fa-users-viewfinder"></i> Community</li>
-                <li class="nav-item logout-btn" onclick="logoutUser()"><i class="fa-solid fa-right-from-bracket"></i> Logout</li>
+                <li class="nav-item active" data-target="home-view"><i class="fa-solid fa-cloud-sun"></i> Weather &
+                    Crops</li>
+                <li class="nav-item" data-target="inventory-view"><i class="fa-solid fa-boxes-stacked"></i> Inventory &
+                    Assets</li>
+                <li class="nav-item" data-target="finance-view"><i class="fa-solid fa-indian-rupee-sign"></i> Finances
+                </li>
+                <li class="nav-item" data-target="community-view"><i class="fa-solid fa-users-viewfinder"></i> Community
+                </li>
+                <li class="nav-item logout-btn" onclick="logoutUser()"><i class="fa-solid fa-right-from-bracket"></i>
+                    Logout</li>
             </ul>
         </aside>
 
-     
+
         <main class="main-content">
             <header class="header">
                 <div style="display: flex; align-items: center; gap: 15px;">
@@ -148,41 +458,59 @@
                 </div>
             </header>
 
-          
+
             <div id="home-view" class="view-section active">
                 <!-- Top 3 Cards -->
                 <div class="grid-3">
-                    <div class="card weather-card" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: white;">
+                    <div class="card weather-card"
+                        style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: white;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
                                 <p>Salem, TN</p>
                                 <h2 style="font-size:36px; margin: 5px 0;">28°C</h2>
-                                <p style="font-size:14px;"><i class="fa-solid fa-droplet"></i> Hum: 65% | <i class="fa-solid fa-wind"></i> 12km/h</p>
+                                <p style="font-size:14px;"><i class="fa-solid fa-droplet"></i> Hum: 65% | <i
+                                        class="fa-solid fa-wind"></i> 12km/h</p>
                             </div>
                             <i class="fa-solid fa-cloud-sun-rain" style="font-size: 50px; opacity:0.9;"></i>
                         </div>
-                        <div style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; font-size: 13px;">
+                        <div
+                            style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; font-size: 13px;">
                             <strong>Forecast:</strong> 40% Chance of rain in the next 48 hours.
                         </div>
                     </div>
 
                     <div class="card">
-                        <h3 style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:15px;"><i class="fa-solid fa-flask"></i> Soil Health (NPK & pH)</h3>
+                        <h3
+                            style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:15px;">
+                            <i class="fa-solid fa-flask"></i> Soil Health (NPK & pH)</h3>
                         <div style="font-size: 14px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Nitrogen (N)</span> <strong style="color:var(--danger)">Low (Add Urea)</strong></div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Phosphorus (P)</span> <strong style="color:var(--secondary)">Optimal</strong></div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Potassium (K)</span> <strong style="color:var(--secondary)">Optimal</strong></div>
-                            <div style="display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px dashed var(--border);"><span>pH Level</span> <strong>6.5 (Neutral)</strong></div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Nitrogen (N)</span> <strong style="color:var(--danger)">Low (Add Urea)</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Phosphorus (P)</span> <strong style="color:var(--secondary)">Optimal</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span>Potassium (K)</span> <strong style="color:var(--secondary)">Optimal</strong></div>
+                            <div
+                                style="display: flex; justify-content: space-between; padding-top: 8px; border-top: 1px dashed var(--border);">
+                                <span>pH Level</span> <strong>6.5 (Neutral)</strong></div>
                         </div>
                     </div>
 
                     <div class="card">
-                        <h3 style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:10px;"><i class="fa-solid fa-scale-balanced"></i> Today's Mandi Prices</h3>
+                        <h3
+                            style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:10px;">
+                            <i class="fa-solid fa-scale-balanced"></i> Today's Mandi Prices</h3>
                         <ul class="data-list" style="font-size: 14px;">
-                            <li><span>Turmeric (Salem)</span> <strong style="color:var(--secondary);">₹ 9,500/Qtl <i class="fa-solid fa-arrow-trend-up"></i></strong></li>
-                            <li><span>Paddy (Ponni)</span> <strong>₹ 2,150/Qtl <i class="fa-solid fa-minus" style="color:var(--text-muted)"></i></strong></li>
-                            <li><span>Groundnut (Raw)</span> <strong style="color:var(--danger);">₹ 6,200/Qtl <i class="fa-solid fa-arrow-trend-down"></i></strong></li>
-                            <li><span>Cotton (Long)</span> <strong style="color:var(--secondary);">₹ 7,100/Qtl <i class="fa-solid fa-arrow-trend-up"></i></strong></li>
+                            <li><span>Turmeric (Salem)</span> <strong style="color:var(--secondary);">₹ 9,500/Qtl <i
+                                        class="fa-solid fa-arrow-trend-up"></i></strong></li>
+                            <li><span>Paddy (Ponni)</span> <strong>₹ 2,150/Qtl <i class="fa-solid fa-minus"
+                                        style="color:var(--text-muted)"></i></strong></li>
+                            <li><span>Groundnut (Raw)</span> <strong style="color:var(--danger);">₹ 6,200/Qtl <i
+                                        class="fa-solid fa-arrow-trend-down"></i></strong></li>
+                            <li><span>Cotton (Long)</span> <strong style="color:var(--secondary);">₹ 7,100/Qtl <i
+                                        class="fa-solid fa-arrow-trend-up"></i></strong></li>
                         </ul>
                     </div>
                 </div>
@@ -190,59 +518,75 @@
                 <div class="grid-2">
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-seedling" style="color:var(--secondary)"></i> Crop Growth & Advisory</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-seedling" style="color:var(--secondary)"></i>
+                                Crop Growth & Advisory</h2>
                         </div>
                         <div style="margin-bottom: 20px;">
-                            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
+                            <div
+                                style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
                                 <strong>Turmeric - 2 Acres</strong>
                                 <span style="color:var(--primary); font-weight:bold;">Day 180 / 270</span>
                             </div>
-                            <div class="progress-bar-bg"><div style="width:66%; height:100%; background:var(--primary);"></div></div>
+                            <div class="progress-bar-bg">
+                                <div style="width:66%; height:100%; background:var(--primary);"></div>
+                            </div>
                             <p style="font-size:12px; color:var(--text-muted);">Stage: Rhizome Development.</p>
-                            <div style="background:var(--warning-light); color:var(--warning); padding:8px; border-radius:6px; font-size:12px; margin-top:8px;">
-                                ⚠️ <strong>Alert:</strong> High humidity detected. Spray Mancozeb (2g/lit) to prevent Leaf Spot.
+                            <div
+                                style="background:var(--warning-light); color:var(--warning); padding:8px; border-radius:6px; font-size:12px; margin-top:8px;">
+                                ⚠️ <strong>Alert:</strong> High humidity detected. Spray Mancozeb (2g/lit) to prevent
+                                Leaf Spot.
                             </div>
                         </div>
 
                         <div>
-                            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
+                            <div
+                                style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
                                 <strong>Paddy - 3 Acres</strong>
                                 <span style="color:var(--secondary); font-weight:bold;">Day 45 / 120</span>
                             </div>
-                            <div class="progress-bar-bg"><div style="width:37%; height:100%; background:var(--secondary);"></div></div>
+                            <div class="progress-bar-bg">
+                                <div style="width:37%; height:100%; background:var(--secondary);"></div>
+                            </div>
                             <p style="font-size:12px; color:var(--text-muted);">Stage: Tillering Phase.</p>
-                            <div style="background:var(--info-light); color:var(--info); padding:8px; border-radius:6px; font-size:12px; margin-top:8px;">
-                                <i class="fa-solid fa-droplet"></i> <strong>Irrigation:</strong> Maintain 2-3 cm water level constantly.
+                            <div
+                                style="background:var(--info-light); color:var(--info); padding:8px; border-radius:6px; font-size:12px; margin-top:8px;">
+                                <i class="fa-solid fa-droplet"></i> <strong>Irrigation:</strong> Maintain 2-3 cm water
+                                level constantly.
                             </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-clipboard-list" style="color:var(--primary)"></i> Farm Action Plan</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-clipboard-list"
+                                    style="color:var(--primary)"></i> Farm Action Plan</h2>
                         </div>
                         <ul class="data-list" style="font-size:14px;">
                             <li>
                                 <label style="display:flex; gap:10px; cursor:pointer;">
-                                    <input type="checkbox" style="accent-color:var(--secondary);"> Apply Top Dressing Urea (Paddy)
+                                    <input type="checkbox" style="accent-color:var(--secondary);"> Apply Top Dressing
+                                    Urea (Paddy)
                                 </label>
                                 <span class="badge warning">Today</span>
                             </li>
                             <li>
                                 <label style="display:flex; gap:10px; cursor:pointer;">
-                                    <input type="checkbox" style="accent-color:var(--secondary);"> Clear field drainage (Turmeric)
+                                    <input type="checkbox" style="accent-color:var(--secondary);"> Clear field drainage
+                                    (Turmeric)
                                 </label>
                                 <span class="badge warning">Today</span>
                             </li>
                             <li>
                                 <label style="display:flex; gap:10px; cursor:pointer;">
-                                    <input type="checkbox" style="accent-color:var(--secondary);"> Buy Diesel for Motor & Tractor
+                                    <input type="checkbox" style="accent-color:var(--secondary);"> Buy Diesel for Motor
+                                    & Tractor
                                 </label>
                                 <span class="badge safe">Tomorrow</span>
                             </li>
                             <li>
                                 <label style="display:flex; gap:10px; cursor:pointer;">
-                                    <input type="checkbox" style="accent-color:var(--secondary);"> Harvest Groundnut (East Field)
+                                    <input type="checkbox" style="accent-color:var(--secondary);"> Harvest Groundnut
+                                    (East Field)
                                 </label>
                                 <span class="badge info">Upcoming</span>
                             </li>
@@ -251,12 +595,13 @@
                 </div>
             </div>
 
-           
+
             <div id="inventory-view" class="view-section">
                 <!-- Summary Metrics -->
                 <div class="grid-3" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="card" style="text-align:center; padding: 15px;">
-                        <i class="fa-solid fa-seedling" style="font-size:24px; color:var(--secondary); margin-bottom:5px;"></i>
+                        <i class="fa-solid fa-seedling"
+                            style="font-size:24px; color:var(--secondary); margin-bottom:5px;"></i>
                         <h3 style="font-size: 16px;">Seeds</h3>
                         <p style="font-size:12px; color:var(--text-muted);">2 Varieties Stocked</p>
                     </div>
@@ -266,7 +611,8 @@
                         <p style="font-size:12px; color:var(--danger);">1 Item needs restock</p>
                     </div>
                     <div class="card" style="text-align:center; padding: 15px;">
-                        <i class="fa-solid fa-gas-pump" style="font-size:24px; color:var(--warning); margin-bottom:5px;"></i>
+                        <i class="fa-solid fa-gas-pump"
+                            style="font-size:24px; color:var(--warning); margin-bottom:5px;"></i>
                         <h3 style="font-size: 16px;">Fuel</h3>
                         <p style="font-size:12px; color:var(--text-muted);">15 Ltrs Diesel Avail.</p>
                     </div>
@@ -275,65 +621,92 @@
                 <div class="grid-2">
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-warehouse" style="color:var(--primary)"></i> Input Stock (Godown)</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-warehouse" style="color:var(--primary)"></i>
+                                Input Stock (Godown)</h2>
                             <a href="404.html">
-                            <button class="btn btn-primary" style="padding: 4px 10px; font-size:12px;"><i class="fa-solid fa-plus"></i> Add Stock</button>
+                                <button class="btn btn-primary" style="padding: 4px 10px; font-size:12px;"><i
+                                        class="fa-solid fa-plus"></i> Add Stock</button>
                             </a>
                         </div>
                         <ul class="data-list">
                             <li>
-                                <div><strong style="display:block; font-size:15px;">Urea (45kg Bags)</strong><span style="font-size:12px; color:var(--text-muted);">Exp: Dec 2024</span></div>
-                                <div style="text-align:right;"><strong style="font-size:16px;">12 Bags</strong><br><span class="badge safe">Adequate</span></div>
+                                <div><strong style="display:block; font-size:15px;">Urea (45kg Bags)</strong><span
+                                        style="font-size:12px; color:var(--text-muted);">Exp: Dec 2024</span></div>
+                                <div style="text-align:right;"><strong style="font-size:16px;">12 Bags</strong><br><span
+                                        class="badge safe">Adequate</span></div>
                             </li>
                             <li>
-                                <div><strong style="display:block; font-size:15px;">DAP Fertilizer</strong><span style="font-size:12px; color:var(--text-muted);">Required for next sowing</span></div>
-                                <div style="text-align:right;"><strong style="font-size:16px;">1 Bag</strong><br><span class="badge low">Low Stock</span></div>
+                                <div><strong style="display:block; font-size:15px;">DAP Fertilizer</strong><span
+                                        style="font-size:12px; color:var(--text-muted);">Required for next sowing</span>
+                                </div>
+                                <div style="text-align:right;"><strong style="font-size:16px;">1 Bag</strong><br><span
+                                        class="badge low">Low Stock</span></div>
                             </li>
                             <li>
-                                <div><strong style="display:block; font-size:15px;">Pesticide (Neem Oil)</strong><span style="font-size:12px; color:var(--text-muted);">1 Liter Cans</span></div>
-                                <div style="text-align:right;"><strong style="font-size:16px;">3 Cans</strong><br><span class="badge safe">Adequate</span></div>
+                                <div><strong style="display:block; font-size:15px;">Pesticide (Neem Oil)</strong><span
+                                        style="font-size:12px; color:var(--text-muted);">1 Liter Cans</span></div>
+                                <div style="text-align:right;"><strong style="font-size:16px;">3 Cans</strong><br><span
+                                        class="badge safe">Adequate</span></div>
                             </li>
                             <li>
-                                <div><strong style="display:block; font-size:15px;">Paddy Seeds (CR 1009)</strong><span style="font-size:12px; color:var(--text-muted);">Stored in dry bins</span></div>
-                                <div style="text-align:right;"><strong style="font-size:16px;">50 Kg</strong><br><span class="badge safe">Adequate</span></div>
+                                <div><strong style="display:block; font-size:15px;">Paddy Seeds (CR 1009)</strong><span
+                                        style="font-size:12px; color:var(--text-muted);">Stored in dry bins</span></div>
+                                <div style="text-align:right;"><strong style="font-size:16px;">50 Kg</strong><br><span
+                                        class="badge safe">Adequate</span></div>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                       
+
                         <div class="card" style="margin-bottom: 20px;">
                             <div class="card-header" style="margin-bottom:10px;">
-                                <h2 class="card-title"><i class="fa-solid fa-sack-dollar" style="color:var(--secondary)"></i> Harvested Produce</h2>
+                                <h2 class="card-title"><i class="fa-solid fa-sack-dollar"
+                                        style="color:var(--secondary)"></i> Harvested Produce</h2>
                             </div>
                             <ul class="data-list">
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">Dried Turmeric</strong><span style="font-size:12px; color:var(--text-muted);">Waiting for better price</span></div>
-                                    <div style="text-align:right;"><strong style="font-size:16px; color:var(--secondary);">20 Bags (1 Ton)</strong></div>
+                                    <div><strong style="display:block; font-size:15px;">Dried Turmeric</strong><span
+                                            style="font-size:12px; color:var(--text-muted);">Waiting for better
+                                            price</span></div>
+                                    <div style="text-align:right;"><strong
+                                            style="font-size:16px; color:var(--secondary);">20 Bags (1 Ton)</strong>
+                                    </div>
                                 </li>
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">Groundnut (Pods)</strong><span style="font-size:12px; color:var(--text-muted);">Ready for market sale</span></div>
-                                    <div style="text-align:right;"><strong style="font-size:16px; color:var(--secondary);">15 Bags</strong></div>
+                                    <div><strong style="display:block; font-size:15px;">Groundnut (Pods)</strong><span
+                                            style="font-size:12px; color:var(--text-muted);">Ready for market
+                                            sale</span></div>
+                                    <div style="text-align:right;"><strong
+                                            style="font-size:16px; color:var(--secondary);">15 Bags</strong></div>
                                 </li>
                             </ul>
                         </div>
 
-                       
+
                         <div class="card">
                             <div class="card-header" style="margin-bottom:10px;">
-                                <h2 class="card-title"><i class="fa-solid fa-tractor" style="color:var(--info)"></i> Machinery & Power</h2>
+                                <h2 class="card-title"><i class="fa-solid fa-tractor" style="color:var(--info)"></i>
+                                    Machinery & Power</h2>
                             </div>
                             <ul class="data-list">
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">Mahindra Tractor</strong><span style="font-size:12px; color:var(--text-muted);">Next service in 50 hrs</span></div>
+                                    <div><strong style="display:block; font-size:15px;">Mahindra Tractor</strong><span
+                                            style="font-size:12px; color:var(--text-muted);">Next service in 50
+                                            hrs</span></div>
                                     <span class="badge safe">Active</span>
                                 </li>
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">5HP Borewell Motor</strong><span style="font-size:12px; color:var(--text-muted);">Check starter coil</span></div>
+                                    <div><strong style="display:block; font-size:15px;">5HP Borewell Motor</strong><span
+                                            style="font-size:12px; color:var(--text-muted);">Check starter coil</span>
+                                    </div>
                                     <span class="badge low">Needs Repair</span>
                                 </li>
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">Grid Electricity (EB)</strong><span style="font-size:12px; color:var(--text-muted);">Scheduled 3-Phase timing</span></div>
+                                    <div><strong style="display:block; font-size:15px;">Grid Electricity
+                                            (EB)</strong><span
+                                            style="font-size:12px; color:var(--text-muted);">Scheduled 3-Phase
+                                            timing</span></div>
                                     <span class="badge info">Avail. till 4 PM</span>
                                 </li>
                             </ul>
@@ -342,18 +715,20 @@
                 </div>
             </div>
 
-           
+
             <div id="finance-view" class="view-section">
                 <div class="grid-3">
                     <div class="card" style="border-left: 4px solid var(--secondary); padding: 15px 20px;">
                         <p style="color:var(--text-muted); font-size:13px;">Income (This Season)</p>
                         <h2 style="font-size:24px; margin-top:5px;">₹ 1,45,000</h2>
-                        <p style="font-size:12px; color:var(--secondary); margin-top:5px;"><i class="fa-solid fa-arrow-up"></i> 12% from last season</p>
+                        <p style="font-size:12px; color:var(--secondary); margin-top:5px;"><i
+                                class="fa-solid fa-arrow-up"></i> 12% from last season</p>
                     </div>
                     <div class="card" style="border-left: 4px solid var(--danger); padding: 15px 20px;">
                         <p style="color:var(--text-muted); font-size:13px;">Expenses (This Season)</p>
                         <h2 style="font-size:24px; margin-top:5px;">₹ 42,500</h2>
-                        <p style="font-size:12px; color:var(--danger); margin-top:5px;"><i class="fa-solid fa-arrow-up"></i> 5% from last season</p>
+                        <p style="font-size:12px; color:var(--danger); margin-top:5px;"><i
+                                class="fa-solid fa-arrow-up"></i> 5% from last season</p>
                     </div>
                     <div class="card" style="border-left: 4px solid var(--primary); padding: 15px 20px;">
                         <p style="color:var(--text-muted); font-size:13px;">Net Profit Expected</p>
@@ -370,45 +745,64 @@
                     </div>
 
                     <div>
-                      
+
                         <div class="card" style="margin-bottom: 20px;">
                             <div class="card-header" style="margin-bottom:10px;">
-                                <h2 class="card-title"><i class="fa-solid fa-file-invoice-dollar" style="color:var(--danger)"></i> Upcoming Dues & Loans</h2>
+                                <h2 class="card-title"><i class="fa-solid fa-file-invoice-dollar"
+                                        style="color:var(--danger)"></i> Upcoming Dues & Loans</h2>
                             </div>
                             <ul class="data-list" style="font-size:14px;">
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">EB Bill (Farm)</strong><span style="font-size:11px; color:var(--text-muted);">Due: 28th This Month</span></div>
-                                    <div style="text-align:right;"><strong style="color:var(--danger);">₹ 850</strong><br>
-                                        <a href="404.html"><button class="btn btn-outline" style="padding:2px 8px; font-size:11px; margin-top:4px;">Pay Now</button>
-                                        </a></div>
+                                    <div><strong style="display:block; font-size:15px;">EB Bill (Farm)</strong><span
+                                            style="font-size:11px; color:var(--text-muted);">Due: 28th This Month</span>
+                                    </div>
+                                    <div style="text-align:right;"><strong style="color:var(--danger);">₹
+                                            850</strong><br>
+                                        <a href="404.html"><button class="btn btn-outline"
+                                                style="padding:2px 8px; font-size:11px; margin-top:4px;">Pay
+                                                Now</button>
+                                        </a>
+                                    </div>
                                 </li>
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">Kisan Credit Card (KCC)</strong><span style="font-size:11px; color:var(--text-muted);">Renewal: 15 Oct 2024</span></div>
+                                    <div><strong style="display:block; font-size:15px;">Kisan Credit Card
+                                            (KCC)</strong><span
+                                            style="font-size:11px; color:var(--text-muted);">Renewal: 15 Oct 2024</span>
+                                    </div>
                                     <div style="text-align:right;"><strong>₹ 50,000</strong></div>
                                 </li>
                                 <li>
-                                    <div><strong style="display:block; font-size:15px;">PM-Kisan Samman Nidhi</strong><span style="font-size:11px; color:var(--text-muted);">16th Installment</span></div>
-                                    <div style="text-align:right;"><strong style="color:var(--secondary);">+ ₹ 2,000</strong><br><span class="badge safe">Credited</span></div>
+                                    <div><strong style="display:block; font-size:15px;">PM-Kisan Samman
+                                            Nidhi</strong><span style="font-size:11px; color:var(--text-muted);">16th
+                                            Installment</span></div>
+                                    <div style="text-align:right;"><strong style="color:var(--secondary);">+ ₹
+                                            2,000</strong><br><span class="badge safe">Credited</span></div>
                                 </li>
                             </ul>
                         </div>
 
-                       
+
                         <div class="card">
                             <div class="card-header" style="margin-bottom:10px;">
                                 <h2 class="card-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Ledger</h2>
                             </div>
                             <ul class="data-list" style="font-size:14px;">
                                 <li>
-                                    <div><strong>Sold Tomato (Market)</strong><span style="display:block; font-size:11px; color:var(--text-muted);">Today</span></div>
+                                    <div><strong>Sold Tomato (Market)</strong><span
+                                            style="display:block; font-size:11px; color:var(--text-muted);">Today</span>
+                                    </div>
                                     <strong style="color:var(--secondary);">+ ₹ 5,400</strong>
                                 </li>
                                 <li>
-                                    <div><strong>Bought DAP Fertilizer</strong><span style="display:block; font-size:11px; color:var(--text-muted);">Yesterday</span></div>
+                                    <div><strong>Bought DAP Fertilizer</strong><span
+                                            style="display:block; font-size:11px; color:var(--text-muted);">Yesterday</span>
+                                    </div>
                                     <strong style="color:var(--danger);">- ₹ 1,350</strong>
                                 </li>
                                 <li>
-                                    <div><strong>Labour Wages (Weeding)</strong><span style="display:block; font-size:11px; color:var(--text-muted);">2 Days ago</span></div>
+                                    <div><strong>Labour Wages (Weeding)</strong><span
+                                            style="display:block; font-size:11px; color:var(--text-muted);">2 Days
+                                            ago</span></div>
                                     <strong style="color:var(--danger);">- ₹ 2,000</strong>
                                 </li>
                             </ul>
@@ -417,47 +811,61 @@
                 </div>
             </div>
 
-           
+
             <div id="community-view" class="view-section">
                 <!-- Helpline and Top Schemes Banner -->
                 <div class="grid-2">
-                    <div class="card" style="background:var(--primary-light); border:none; border-left: 4px solid var(--primary-dark);">
-                        <h2 style="color:var(--primary-dark); margin-bottom:8px; font-size:18px;"><i class="fa-solid fa-headset"></i> Govt. Agri Helpline</h2>
-                        <p style="font-size:13px; margin-bottom:15px; color:var(--text-main);">Free consultation in regional language. Get instant advice on crops, pests, and diseases.</p>
+                    <div class="card"
+                        style="background:var(--primary-light); border:none; border-left: 4px solid var(--primary-dark);">
+                        <h2 style="color:var(--primary-dark); margin-bottom:8px; font-size:18px;"><i
+                                class="fa-solid fa-headset"></i> Govt. Agri Helpline</h2>
+                        <p style="font-size:13px; margin-bottom:15px; color:var(--text-main);">Free consultation in
+                            regional language. Get instant advice on crops, pests, and diseases.</p>
                         <a href="404.html">
-                        <button class="btn btn-primary"><i class="fa-solid fa-phone"></i> Dial 1800-180-1551</button>
+                            <button class="btn btn-primary"><i class="fa-solid fa-phone"></i> Dial
+                                1800-180-1551</button>
                         </a>
                     </div>
 
-                    <div class="card" style="background:var(--info-light); border:none; border-left: 4px solid var(--info);">
-                        <h2 style="color:var(--info); margin-bottom:8px; font-size:18px;"><i class="fa-solid fa-file-contract"></i> Top Govt Schemes</h2>
-                        <ul style="font-size:13px; color:var(--text-main); margin-left: 15px; margin-bottom: 10px; line-height:1.6;">
+                    <div class="card"
+                        style="background:var(--info-light); border:none; border-left: 4px solid var(--info);">
+                        <h2 style="color:var(--info); margin-bottom:8px; font-size:18px;"><i
+                                class="fa-solid fa-file-contract"></i> Top Govt Schemes</h2>
+                        <ul
+                            style="font-size:13px; color:var(--text-main); margin-left: 15px; margin-bottom: 10px; line-height:1.6;">
                             <li><strong>PM-KUSUM:</strong> Subsidy for Solar Pumps (Apply before 30th)</li>
                             <li><strong>Fasal Bima Yojana:</strong> Crop Insurance deadline approaching.</li>
                         </ul>
                         <a href="404.html">
-                        <button class="btn btn-outline" style="border-color:var(--info); color:var(--info); padding: 5px 12px; font-size:13px;">View All Schemes</button>
+                            <button class="btn btn-outline"
+                                style="border-color:var(--info); color:var(--info); padding: 5px 12px; font-size:13px;">View
+                                All Schemes</button>
                         </a>
                     </div>
                 </div>
 
                 <div class="grid-2">
-                   
+
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-user-doctor" style="color:var(--secondary)"></i> Local Experts & Events</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-user-doctor"
+                                    style="color:var(--secondary)"></i> Local Experts & Events</h2>
                         </div>
                         <ul class="data-list">
                             <li style="align-items:flex-start;">
                                 <div style="display:flex; gap:15px;">
-                                    <div class="profile-img" style="background:#10b981; color:white; width:45px; height:45px; flex-shrink:0;">
+                                    <div class="profile-img"
+                                        style="background:#10b981; color:white; width:45px; height:45px; flex-shrink:0;">
                                         <i class="fa-solid fa-user-tie"></i>
                                     </div>
                                     <div>
                                         <strong style="font-size:15px;">Dr. Ramesh (TNAU)</strong>
-                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Horticulture & Pest Control</p>
+                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Horticulture &
+                                            Pest Control</p>
                                         <a href="404.html">
-                                        <button class="btn btn-outline" style="padding:4px 8px; font-size:12px; margin-top:5px;"><i class="fa-brands fa-whatsapp"></i> Chat</button>
+                                            <button class="btn btn-outline"
+                                                style="padding:4px 8px; font-size:12px; margin-top:5px;"><i
+                                                    class="fa-brands fa-whatsapp"></i> Chat</button>
                                         </a>
                                     </div>
 
@@ -465,52 +873,71 @@
                             </li>
                             <li style="align-items:flex-start;">
                                 <div style="display:flex; gap:15px;">
-                                    <div class="profile-img" style="background:#f59e0b; color:white; width:45px; height:45px; flex-shrink:0;">
+                                    <div class="profile-img"
+                                        style="background:#f59e0b; color:white; width:45px; height:45px; flex-shrink:0;">
                                         <i class="fa-solid fa-stethoscope"></i>
                                     </div>
                                     <div>
                                         <strong style="font-size:15px;">Dr. Kavitha (Vet)</strong>
-                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Livestock & Dairy Farming</p>
+                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Livestock &
+                                            Dairy Farming</p>
                                         <a href="404.html">
-                                        <button class="btn btn-outline" style="padding:4px 8px; font-size:12px; margin-top:5px;"><i class="fa-solid fa-phone"></i> Call Now</button>
+                                            <button class="btn btn-outline"
+                                                style="padding:4px 8px; font-size:12px; margin-top:5px;"><i
+                                                    class="fa-solid fa-phone"></i> Call Now</button>
                                         </a>
                                     </div>
                                 </div>
                             </li>
                             <li style="align-items:flex-start;">
                                 <div style="display:flex; gap:15px;">
-                                    <div class="profile-img" style="background:var(--primary); color:white; width:45px; height:45px; flex-shrink:0; border-radius:8px;">
+                                    <div class="profile-img"
+                                        style="background:var(--primary); color:white; width:45px; height:45px; flex-shrink:0; border-radius:8px;">
                                         <i class="fa-solid fa-calendar-days"></i>
                                     </div>
                                     <div>
                                         <strong style="font-size:15px;">Agri Machinery Mela 2026</strong>
-                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Location: Collectorate Ground<br>Date: 25th June, 10 AM</p>
-                                        <span class="badge info" style="margin-top:5px; display:inline-block;">Entry Free</span>
+                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Location:
+                                            Collectorate Ground<br>Date: 25th June, 10 AM</p>
+                                        <span class="badge info" style="margin-top:5px; display:inline-block;">Entry
+                                            Free</span>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    
+
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-comments" style="color:var(--primary)"></i> Farmers Forum (Q&A)</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-comments" style="color:var(--primary)"></i>
+                                Farmers Forum (Q&A)</h2>
                             <a href="404.html">
-                            <button class="btn" style="background:var(--secondary-light); color:var(--secondary); padding:4px 10px; font-size:12px;">Ask Question</button>
+                                <button class="btn"
+                                    style="background:var(--secondary-light); color:var(--secondary); padding:4px 10px; font-size:12px;">Ask
+                                    Question</button>
 
                         </div>
-                        <div style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 3px solid var(--primary);">
-                            <strong style="font-size:14px; color:var(--text-main);">"Yellow spots on turmeric leaves, what to spray?"</strong>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Velu, Erode • <span style="color:var(--secondary); font-weight:bold;">3 Answers</span></p>
+                        <div
+                            style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 3px solid var(--primary);">
+                            <strong style="font-size:14px; color:var(--text-main);">"Yellow spots on turmeric leaves,
+                                what to spray?"</strong>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Velu, Erode •
+                                <span style="color:var(--secondary); font-weight:bold;">3 Answers</span></p>
                         </div>
-                        <div style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
-                            <strong style="font-size:14px; color:var(--text-main);">"Current rental price for JCB per hour in Dharmapuri?"</strong>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Selvam, Dharmapuri • <span style="color:var(--secondary); font-weight:bold;">8 Answers</span></p>
+                        <div
+                            style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <strong style="font-size:14px; color:var(--text-main);">"Current rental price for JCB per
+                                hour in Dharmapuri?"</strong>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Selvam,
+                                Dharmapuri • <span style="color:var(--secondary); font-weight:bold;">8 Answers</span>
+                            </p>
                         </div>
                         <div style="background: var(--bg-color); padding: 15px; border-radius: 8px;">
-                            <strong style="font-size:14px; color:var(--text-main);">"Best time to sow Groundnut in upcoming season?"</strong>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Kannan, Trichy • <span style="color:var(--secondary); font-weight:bold;">5 Answers</span></p>
+                            <strong style="font-size:14px; color:var(--text-main);">"Best time to sow Groundnut in
+                                upcoming season?"</strong>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Kannan, Trichy
+                                • <span style="color:var(--secondary); font-weight:bold;">5 Answers</span></p>
                         </div>
                     </div>
                 </div>
@@ -520,11 +947,11 @@
     </div>
 
     <script>
-     
+
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
         document.getElementById('dateString').innerText = new Date().toLocaleDateString('en-IN', dateOptions);
 
-        
+
         if (!localStorage.getItem('userEmail')) {
             localStorage.setItem('userEmail', 'vivasayi.tamil@farmer.com');
         }
@@ -538,7 +965,7 @@
         document.getElementById('profileInitial').innerText = formattedName.charAt(0);
 
         function logoutUser() {
-            if(confirm("Are you sure you want to logout?")) {
+            if (confirm("Are you sure you want to logout?")) {
                 localStorage.removeItem('userEmail');
                 window.location.href = "login.html";
             }
@@ -583,7 +1010,7 @@
         });
         sidebarOverlay.addEventListener('click', closeSidebar);
 
-     
+
         function renderFinanceChart() {
             const ctx = document.getElementById('financeChart').getContext('2d');
             new Chart(ctx, {
