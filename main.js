@@ -61,7 +61,7 @@ loginForm.addEventListener("submit", (e) => {
     const password = document.getElementById("loginPassword").value.trim();
     const role = document.getElementById("loginRole").value;
 
-    
+
     if (!emailPattern.test(email)) {
         showError("loginEmailError", "Please enter a valid email address.");
         isValid = false;
@@ -69,7 +69,7 @@ loginForm.addEventListener("submit", (e) => {
         clearError("loginEmailError");
     }
 
-    
+
     if (password.length < 6) {
         showError("loginPasswordError", "Password must be at least 6 characters.");
         isValid = false;
@@ -78,7 +78,7 @@ loginForm.addEventListener("submit", (e) => {
     }
 
     if (isValid) {
-        localStorage.setItem("userEmail",email);
+        localStorage.setItem("userEmail", email);
         if (role == "admin") {
             window.location.href = "admin.html";
         } else if (role == "farmer") {
@@ -97,7 +97,7 @@ signupForm.addEventListener("submit", (e) => {
     const confirmPassword = document.getElementById("signupConfirmPassword").value.trim();
     const role = document.getElementById("signupRole").value;
 
-    
+
     if (name === "") {
         showError("signupNameError", "Full name is required.");
         isValid = false;
@@ -127,7 +127,7 @@ signupForm.addEventListener("submit", (e) => {
         clearError("signupConfirmError");
     }
 
-    
+
     if (isValid) {
         // alert(`Account created successfully as ${role}!`);
         showLoginForm(); // Redirect back to login after signup

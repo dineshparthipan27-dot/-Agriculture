@@ -45,7 +45,7 @@
             min-height: 100vh;
         }
 
-        /* --- SIDEBAR --- */
+
         .sidebar {
             width: 280px;
             background: var(--surface);
@@ -121,7 +121,7 @@
             color: white;
         }
 
-        /* --- MAIN CONTENT --- */
+
         .main-content {
             margin-left: 280px;
             flex: 1;
@@ -188,7 +188,7 @@
             font-weight: bold;
         }
 
-        /* --- VIEWS & ANIMATIONS --- */
+
         .view-section {
             display: none;
             padding: 20px 30px;
@@ -225,7 +225,7 @@
             margin-bottom: 25px;
         }
 
-        /* --- CARDS --- */
+
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -252,7 +252,6 @@
             gap: 10px;
         }
 
-        /* --- CUSTOM LISTS --- */
         .data-list {
             list-style: none;
         }
@@ -321,7 +320,7 @@
             color: var(--primary);
         }
 
-        /* Progress Bar */
+
         .progress-bar-bg {
             width: 100%;
             height: 8px;
@@ -331,7 +330,7 @@
             margin-bottom: 5px;
         }
 
-        /* MOBILE MENU & RESPONSIVENESS */
+
         .menu-btn {
             display: none;
             font-size: 22px;
@@ -408,7 +407,8 @@
                 height: 35px;
                 font-size: 16px;
             }
-            .fin-chart{
+
+            .fin-chart {
                 overflow-x: scroll;
             }
         }
@@ -433,7 +433,7 @@
 
 <body>
     <div class="layout">
-        <!-- Sidebar Overlay for Mobile -->
+
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
         <!-- Sidebar -->
@@ -462,7 +462,7 @@
             </ul>
         </aside>
 
-        <!-- Main Content -->
+
         <main class="main-content">
             <header class="header">
                 <div style="display: flex; align-items: center; gap: 15px;">
@@ -481,9 +481,7 @@
                 </div>
             </header>
 
-            <!-- ==============================================
-                 1. WEATHER & CROPS VIEW (Enhanced Content)
-            =============================================== -->
+
             <div id="home-view" class="view-section active">
                 <div class="grid-3">
                     <!-- Weather Card -->
@@ -498,7 +496,7 @@
                         <i class="fa-solid fa-cloud-sun-rain" style="font-size: 50px; opacity:0.9;"></i>
                     </div>
 
-                    <!-- Soil Health Card -->
+
                     <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
                         <h3 style="color:var(--text-muted); font-size:13px; text-transform:uppercase;"><i
                                 class="fa-solid fa-flask"></i> Soil Health (NPK)</h3>
@@ -510,11 +508,11 @@
                         </div>
                     </div>
 
-                    <!-- Mandi Prices -->
                     <div class="card">
                         <h3
                             style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:10px;">
-                            <i class="fa-solid fa-scale-balanced"></i> Today's Mandi Prices</h3>
+                            <i class="fa-solid fa-scale-balanced"></i> Today's Mandi Prices
+                        </h3>
                         <ul class="data-list">
                             <li><span>Turmeric</span> <strong style="color:var(--secondary);">₹ 9,500/Qtl <i
                                         class="fa-solid fa-arrow-trend-up"></i></strong></li>
@@ -527,7 +525,7 @@
                 </div>
 
                 <div class="grid-2">
-                    <!-- Crop Growth & Advisory -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title"><i class="fa-solid fa-seedling" style="color:var(--secondary)"></i>
@@ -568,7 +566,7 @@
                         </div>
                     </div>
 
-                    <!-- Task List -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title"><i class="fa-solid fa-clipboard-list"
@@ -591,12 +589,10 @@
                 </div>
             </div>
 
-            <!-- ==============================================
-                 2. INVENTORY & ASSETS VIEW (Enhanced Content)
-            =============================================== -->
+
             <div id="inventory-view" class="view-section">
                 <div class="grid-2">
-                    <!-- Stock Details -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title"><i class="fa-solid fa-warehouse"></i> Godown Stock</h2>
@@ -635,7 +631,7 @@
                         </ul>
                     </div>
 
-                    <!-- Machinery & Fuel Status -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title"><i class="fa-solid fa-tractor" style="color:var(--primary)"></i>
@@ -671,9 +667,7 @@
                 </div>
             </div>
 
-            <!-- ==============================================
-                 3. FINANCES VIEW (Enhanced Content)
-            =============================================== -->
+
             <div id="finance-view" class="view-section">
                 <div class="grid-3">
                     <div class="card" style="border-left: 4px solid var(--secondary); padding: 15px 20px;">
@@ -691,7 +685,7 @@
                 </div>
 
                 <div class="grid-2">
-                    <!-- Chart -->
+
                     <div class="card fin-chart">
                         <div class="card-header">
                             <h2 class="card-title">Income vs Expenses</h2>
@@ -699,7 +693,7 @@
                         <div style="height: 250px; width: 100%;"><canvas id="financeChart"></canvas></div>
                     </div>
 
-                    <!-- Loans & Subsidies -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title"><i class="fa-solid fa-building-columns"></i> Loans & Subsidies</h2>
@@ -744,9 +738,7 @@
                 </div>
             </div>
 
-            <!-- ==============================================
-                 4. COMMUNITY VIEW (Enhanced Content)
-            =============================================== -->
+
             <div id="community-view" class="view-section">
 
                 <div class="card" style="margin-bottom: 20px; background:var(--primary-light); border:none;">
@@ -760,7 +752,7 @@
                 </div>
 
                 <div class="grid-2">
-                    <!-- Local Experts & Events -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title">Experts & Events</h2>
@@ -770,7 +762,8 @@
                                 <div style="display:flex; gap:15px;">
                                     <div class="profile-img"
                                         style="background:#10b981; color:white; width:40px; height:40px; flex-shrink:0;">
-                                        <i class="fa-solid fa-user-tie"></i></div>
+                                        <i class="fa-solid fa-user-tie"></i>
+                                    </div>
                                     <div>
                                         <strong style="font-size:15px;">Dr. Ramesh (TNAU)</strong>
                                         <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Horticulture &
@@ -787,7 +780,8 @@
                                 <div style="display:flex; gap:15px;">
                                     <div class="profile-img"
                                         style="background:var(--primary); color:white; width:40px; height:40px; flex-shrink:0; border-radius:8px;">
-                                        <i class="fa-solid fa-calendar-days"></i></div>
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </div>
                                     <div>
                                         <strong style="font-size:15px;">Agri Machinery Mela 2024</strong>
                                         <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Location:
@@ -800,7 +794,7 @@
                         </ul>
                     </div>
 
-                    <!-- Farmers Forum -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title">Farmers Forum (Q&A)</h2>
@@ -815,7 +809,8 @@
                             <strong style="font-size:14px; color:var(--text-main);">"Yellow spots on turmeric leaves,
                                 what to spray?"</strong>
                             <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Velu, Erode •
-                                <span style="color:var(--secondary); font-weight:bold;">3 Answers</span></p>
+                                <span style="color:var(--secondary); font-weight:bold;">3 Answers</span>
+                            </p>
                         </div>
                         <div
                             style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
@@ -839,11 +834,11 @@
     </div>
 
     <script>
-        // 1. Date Setup
+
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
         document.getElementById('dateString').innerText = new Date().toLocaleDateString('en-IN', dateOptions);
 
-        // 2. Name Extraction from LocalStorage
+
         if (!localStorage.getItem('userEmail')) {
             localStorage.setItem('userEmail', 'vivasayi.tamil@farmer.com');
         }
@@ -856,7 +851,7 @@
         document.getElementById('userEmailDisplay').innerText = userEmail;
         document.getElementById('profileInitial').innerText = formattedName.charAt(0);
 
-        // 3. LOGOUT FUNCTION
+
         function logoutUser() {
             {
                 localStorage.removeItem('userEmail');
@@ -864,7 +859,7 @@
             }
         }
 
-        // 4. Sidebar & Navigation Logic
+
         const navItems = document.querySelectorAll('.nav-item:not(.logout-btn)');
         const views = document.querySelectorAll('.view-section');
         const pageTitle = document.getElementById('pageTitle');
@@ -889,10 +884,10 @@
                 document.getElementById(targetView).classList.add('active');
                 pageTitle.innerText = item.innerText.trim();
 
-                // Close sidebar on mobile
+
                 if (window.innerWidth <= 992) { closeSidebar(); }
 
-                // Render Chart 
+
                 if (targetView === 'finance-view' && !chartRendered) {
                     renderFinanceChart();
                     chartRendered = true;
@@ -906,7 +901,7 @@
         });
         sidebarOverlay.addEventListener('click', closeSidebar);
 
-        // 5. Chart.js Setup for Finance
+
         function renderFinanceChart() {
             const ctx = document.getElementById('financeChart').getContext('2d');
             new Chart(ctx, {

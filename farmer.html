@@ -10,14 +10,14 @@
 
     <style>
         :root {
-            /* Earthy & Agri Color Theme */
-            --primary: #d97706; /* Golden Earth */
+
+            --primary: #d97706;
             --primary-light: #fef3c7;
             --primary-dark: #b45309;
-            
-            --secondary: #15803d; /* Leaf Green */
+
+            --secondary: #15803d;
             --secondary-light: #dcfce7;
-            
+
             --bg-color: #f8fafc;
             --surface: #ffffff;
             --text-main: #1e293b;
@@ -49,7 +49,7 @@
             min-height: 100vh;
         }
 
-        /* --- SIDEBAR --- */
+
         .sidebar {
             width: 280px;
             background: var(--surface);
@@ -73,7 +73,10 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .brand i { color: var(--secondary); font-size: 28px; }
+        .brand i {
+            color: var(--secondary);
+            font-size: 28px;
+        }
 
         .nav-menu {
             padding: 20px 15px;
@@ -98,9 +101,14 @@
             transition: 0.2s;
         }
 
-        .nav-item i { font-size: 18px; width: 24px; text-align: center; }
+        .nav-item i {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
 
-        .nav-item:hover, .nav-item.active {
+        .nav-item:hover,
+        .nav-item.active {
             background: var(--primary-light);
             color: var(--primary-dark);
         }
@@ -117,7 +125,7 @@
             color: white;
         }
 
-        /* --- MAIN CONTENT --- */
+
         .main-content {
             margin-left: 280px;
             flex: 1;
@@ -138,8 +146,16 @@
             z-index: 90;
         }
 
-        .greeting h1 { font-size: 20px; color: var(--text-main); }
-        .greeting p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+        .greeting h1 {
+            font-size: 20px;
+            color: var(--text-main);
+        }
+
+        .greeting p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
 
         .profile-widget {
             display: flex;
@@ -147,9 +163,21 @@
             gap: 15px;
         }
 
-        .user-details { text-align: right; }
-        .user-details strong { display: block; font-size: 15px; color: var(--text-main); }
-        .user-details span { display: block; font-size: 12px; color: var(--text-muted); }
+        .user-details {
+            text-align: right;
+        }
+
+        .user-details strong {
+            display: block;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .user-details span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
 
         .profile-img {
             width: 45px;
@@ -164,17 +192,27 @@
             font-weight: bold;
         }
 
-        /* --- VIEWS & ANIMATIONS --- */
+
         .view-section {
             display: none;
             padding: 20px 30px;
             animation: slideUp 0.4s ease forwards;
         }
-        .view-section.active { display: block; }
+
+        .view-section.active {
+            display: block;
+        }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .grid-3 {
@@ -191,14 +229,15 @@
             margin-bottom: 25px;
         }
 
-        /* --- CARDS --- */
+
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -207,6 +246,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .card-title {
             font-size: 17px;
             font-weight: 700;
@@ -216,8 +256,11 @@
             gap: 10px;
         }
 
-        /* --- CUSTOM LISTS & TABLES --- */
-        .data-list { list-style: none; }
+
+        .data-list {
+            list-style: none;
+        }
+
         .data-list li {
             display: flex;
             justify-content: space-between;
@@ -225,17 +268,32 @@
             padding: 12px 0;
             border-bottom: 1px dashed var(--border);
         }
-        .data-list li:last-child { border-bottom: none; }
-        
+
+        .data-list li:last-child {
+            border-bottom: none;
+        }
+
         .badge {
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
         }
-        .badge.safe { background: var(--secondary-light); color: var(--secondary); }
-        .badge.low { background: var(--danger-light); color: var(--danger); }
-        .badge.warning { background: #fef3c7; color: #d97706; }
+
+        .badge.safe {
+            background: var(--secondary-light);
+            color: var(--secondary);
+        }
+
+        .badge.low {
+            background: var(--danger-light);
+            color: var(--danger);
+        }
+
+        .badge.warning {
+            background: #fef3c7;
+            color: #d97706;
+        }
 
         .btn {
             padding: 8px 16px;
@@ -246,11 +304,23 @@
             transition: 0.2s;
             font-size: 14px;
         }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: var(--primary-dark); }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
 
-        /* MOBILE MENU & RESPONSIVENESS */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+
         .menu-btn {
             display: none;
             font-size: 22px;
@@ -259,59 +329,106 @@
             color: var(--primary-dark);
             cursor: pointer;
         }
-        
-        /* Backdrop for mobile sidebar */
+
+
         .sidebar-overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
             z-index: 95;
         }
 
         @media (max-width: 992px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.active { transform: translateX(0); }
-            .sidebar-overlay.active { display: block; }
-            .main-content { margin-left: 0; width: 100%; }
-            .menu-btn { display: block; }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .menu-btn {
+                display: block;
+            }
         }
 
         @media (max-width: 768px) {
-            .view-section { padding: 15px; }
-            .grid-3, .grid-2 { grid-template-columns: 1fr; }
-            .header { padding: 15px; }
-            .card { padding: 18px; }
+            .view-section {
+                padding: 15px;
+            }
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 18px;
+            }
         }
 
         @media (max-width: 480px) {
-            .greeting h1 { font-size: 18px; }
-            .user-details { display: none; }
-            .profile-img { width: 35px; height: 35px; font-size: 16px; }
-            .card-title { font-size: 15px; }
-            .fin-chart{
+            .greeting h1 {
+                font-size: 18px;
+            }
+
+            .user-details {
+                display: none;
+            }
+
+            .profile-img {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            .card-title {
+                font-size: 15px;
+            }
+
+            .fin-chart {
                 overflow-x: scroll;
             }
         }
-        .logo{
+
+        .logo {
             display: flex;
             align-items: left;
             justify-content: left;
             margin-bottom: 10px;
-            margin-top: 10px;}
-       .logo img{
-           width: 180px;
-           }
+            margin-top: 10px;
+        }
+
+        .logo img {
+            width: 180px;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="layout">
-        <!-- Sidebar Overlay for Mobile -->
+
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-        <!-- Sidebar -->
+
         <aside class="sidebar" id="sidebar">
 
             <div class="logo">
@@ -331,14 +448,14 @@
                 <li class="nav-item" data-target="community-view">
                     <i class="fa-solid fa-users-viewfinder"></i> Growers Hub
                 </li>
-                <!-- LOGOUT BUTTON -->
+
                 <li class="nav-item logout-btn" onclick="logoutUser()">
                     <i class="fa-solid fa-right-from-bracket"></i> Logout
                 </li>
             </ul>
         </aside>
 
-        <!-- Main Content -->
+
         <main class="main-content">
             <header class="header">
                 <div style="display: flex; align-items: center; gap: 15px;">
@@ -348,7 +465,7 @@
                         <p id="dateString"></p>
                     </div>
                 </div>
-                
+
                 <div class="profile-widget">
                     <div class="user-details">
                         <strong id="userNameDisplay">Welcome, Guest!</strong>
@@ -358,32 +475,38 @@
                 </div>
             </header>
 
-            <!-- ==============================
-                 1. HOME / WEATHER VIEW 
-            =============================== -->
+
             <div id="home-view" class="view-section active">
                 <div class="grid-3">
-                    <div class="card weather-card" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: white;">
+                    <div class="card weather-card"
+                        style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: white;">
                         <div>
                             <p>Salem, TN</p>
                             <h2 style="font-size:32px;">28°C</h2>
-                            <p style="font-size:14px;"><i class="fa-solid fa-droplet"></i> Hum: 65% | <i class="fa-solid fa-wind"></i> 12km/h</p>
+                            <p style="font-size:14px;"><i class="fa-solid fa-droplet"></i> Hum: 65% | <i
+                                    class="fa-solid fa-wind"></i> 12km/h</p>
                         </div>
                         <i class="fa-solid fa-cloud-sun-rain" style="font-size: 50px; opacity:0.9;"></i>
                     </div>
-                    
-                    <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 style="color:var(--text-muted); font-size:13px; text-transform:uppercase;">Rainfall Forecast</h3>
+
+                    <div class="card"
+                        style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="color:var(--text-muted); font-size:13px; text-transform:uppercase;">Rainfall Forecast
+                        </h3>
                         <h2 style="font-size: 28px; color:var(--info); margin: 10px 0;">40% Chance</h2>
                         <p style="font-size: 12px; color:var(--text-muted);">Next 48 Hours</p>
                     </div>
 
-                    <!-- NEW CONTENT: Market Price Snippet -->
+
                     <div class="card">
-                        <h3 style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:10px;">Today's Mandi Prices</h3>
+                        <h3
+                            style="color:var(--text-muted); font-size:13px; text-transform:uppercase; margin-bottom:10px;">
+                            Today's Mandi Prices</h3>
                         <ul class="data-list">
-                            <li><span>Turmeric</span> <strong style="color:var(--secondary);">₹ 9,500/Qtl <i class="fa-solid fa-arrow-trend-up"></i></strong></li>
-                            <li><span>Paddy (Ponni)</span> <strong>₹ 2,150/Qtl <i class="fa-solid fa-minus" style="color:var(--text-muted)"></i></strong></li>
+                            <li><span>Turmeric</span> <strong style="color:var(--secondary);">₹ 9,500/Qtl <i
+                                        class="fa-solid fa-arrow-trend-up"></i></strong></li>
+                            <li><span>Paddy (Ponni)</span> <strong>₹ 2,150/Qtl <i class="fa-solid fa-minus"
+                                        style="color:var(--text-muted)"></i></strong></li>
                         </ul>
                     </div>
                 </div>
@@ -391,39 +514,48 @@
                 <div class="grid-2">
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-seedling" style="color:var(--secondary)"></i> Crop Growth Stage</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-seedling" style="color:var(--secondary)"></i>
+                                Crop Growth Stage</h2>
                         </div>
                         <div style="margin-bottom: 20px;">
-                            <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;">
+                            <div
+                                style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;">
                                 <strong>Turmeric - 2 Acres</strong>
                                 <span style="color:var(--primary); font-weight:bold;">Day 180 / 270</span>
                             </div>
-                            <div style="width:100%; height:8px; background:var(--border); border-radius:4px; overflow:hidden;">
+                            <div
+                                style="width:100%; height:8px; background:var(--border); border-radius:4px; overflow:hidden;">
                                 <div style="width:66%; height:100%; background:var(--primary);"></div>
                             </div>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Stage: Rhizome Development. Stop watering 15 days before harvest.</p>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Stage: Rhizome
+                                Development. Stop watering 15 days before harvest.</p>
                         </div>
 
                         <div>
-                            <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;">
+                            <div
+                                style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;">
                                 <strong>Paddy - 3 Acres</strong>
                                 <span style="color:var(--secondary); font-weight:bold;">Day 45 / 120</span>
                             </div>
-                            <div style="width:100%; height:8px; background:var(--border); border-radius:4px; overflow:hidden;">
+                            <div
+                                style="width:100%; height:8px; background:var(--border); border-radius:4px; overflow:hidden;">
                                 <div style="width:37%; height:100%; background:var(--secondary);"></div>
                             </div>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Stage: Tillering. Maintain 2-3 cm water level.</p>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Stage: Tillering.
+                                Maintain 2-3 cm water level.</p>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-clipboard-list" style="color:var(--primary)"></i> Quick Tasks</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-clipboard-list"
+                                    style="color:var(--primary)"></i> Quick Tasks</h2>
                         </div>
                         <ul class="data-list" style="font-size:14px;">
                             <li>
                                 <label style="display:flex; gap:10px; cursor:pointer;">
-                                    <input type="checkbox" style="accent-color:var(--secondary);"> Spray Neem Oil (Paddy)
+                                    <input type="checkbox" style="accent-color:var(--secondary);"> Spray Neem Oil
+                                    (Paddy)
                                 </label>
                             </li>
                             <li>
@@ -433,7 +565,8 @@
                             </li>
                             <li>
                                 <label style="display:flex; gap:10px; cursor:pointer;">
-                                    <input type="checkbox" style="accent-color:var(--secondary);"> Book tractor for ploughing
+                                    <input type="checkbox" style="accent-color:var(--secondary);"> Book tractor for
+                                    ploughing
                                 </label>
                             </li>
                         </ul>
@@ -441,9 +574,7 @@
                 </div>
             </div>
 
-            <!-- ==============================
-                 2. INVENTORY & ASSETS VIEW 
-            =============================== -->
+
             <div id="inventory-view" class="view-section">
                 <div class="grid-2">
                     <!-- Stock Details -->
@@ -451,7 +582,8 @@
                         <div class="card-header">
                             <h2 class="card-title"><i class="fa-solid fa-warehouse"></i> Godown Stock</h2>
                             <a href="404.html">
-                            <button class="btn btn-primary" style="padding: 4px 10px; font-size:12px;"><i class="fa-solid fa-plus"></i> Add</button>
+                                <button class="btn btn-primary" style="padding: 4px 10px; font-size:12px;"><i
+                                        class="fa-solid fa-plus"></i> Add</button>
                             </a>
                         </div>
                         <ul class="data-list">
@@ -488,10 +620,11 @@
                         </ul>
                     </div>
 
-                    <!-- NEW CONTENT: Machinery Status -->
+
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-tractor" style="color:var(--primary)"></i> Machinery Status</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-tractor" style="color:var(--primary)"></i>
+                                Machinery Status</h2>
                         </div>
                         <ul class="data-list">
                             <li>
@@ -520,9 +653,6 @@
                 </div>
             </div>
 
-            <!-- ==============================
-                 3. FINANCE VIEW 
-            =============================== -->
             <div id="finance-view" class="view-section">
                 <div class="grid-3">
                     <div class="card" style="border-left: 4px solid var(--secondary); padding: 15px 20px;">
@@ -549,10 +679,11 @@
                         </div>
                     </div>
 
-                    <!-- NEW CONTENT: Recent Transactions -->
+
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Transactions</h2>
+                            <h2 class="card-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Transactions
+                            </h2>
                         </div>
                         <ul class="data-list" style="font-size:14px;">
                             <li>
@@ -565,21 +696,24 @@
                             <li>
                                 <div>
                                     <strong>Bought DAP Fertilizer</strong>
-                                    <span style="display:block; font-size:11px; color:var(--text-muted);">Yesterday</span>
+                                    <span
+                                        style="display:block; font-size:11px; color:var(--text-muted);">Yesterday</span>
                                 </div>
                                 <strong style="color:var(--danger);">- ₹ 1,350</strong>
                             </li>
                             <li>
                                 <div>
                                     <strong>Labour Wages (Weeding)</strong>
-                                    <span style="display:block; font-size:11px; color:var(--text-muted);">2 Days ago</span>
+                                    <span style="display:block; font-size:11px; color:var(--text-muted);">2 Days
+                                        ago</span>
                                 </div>
                                 <strong style="color:var(--danger);">- ₹ 2,000</strong>
                             </li>
                             <li>
                                 <div>
                                     <strong>Government Subsidy</strong>
-                                    <span style="display:block; font-size:11px; color:var(--text-muted);">Last Week</span>
+                                    <span style="display:block; font-size:11px; color:var(--text-muted);">Last
+                                        Week</span>
                                 </div>
                                 <strong style="color:var(--secondary);">+ ₹ 6,000</strong>
                             </li>
@@ -588,21 +722,20 @@
                 </div>
             </div>
 
-            <!-- ==============================
-                 4. COMMUNITY VIEW 
-            =============================== -->
             <div id="community-view" class="view-section">
-                
+
                 <div class="card" style="margin-bottom: 20px; background:var(--primary-light); border:none;">
-                    <h2 style="color:var(--primary-dark); margin-bottom:8px; font-size:18px;"><i class="fa-solid fa-headset"></i> Govt. Agri Helpline</h2>
-                    <p style="font-size:13px; margin-bottom:15px;">Free consultation in Tamil. Get instant advice on crops and diseases.</p>
-                <a href="404.html">
-                    <button class="btn btn-primary"><i class="fa-solid fa-phone"></i> Dial 1800-180-1551</button>
-                    </a> 
+                    <h2 style="color:var(--primary-dark); margin-bottom:8px; font-size:18px;"><i
+                            class="fa-solid fa-headset"></i> Govt. Agri Helpline</h2>
+                    <p style="font-size:13px; margin-bottom:15px;">Free consultation in Tamil. Get instant advice on
+                        crops and diseases.</p>
+                    <a href="404.html">
+                        <button class="btn btn-primary"><i class="fa-solid fa-phone"></i> Dial 1800-180-1551</button>
+                    </a>
                 </div>
 
                 <div class="grid-2">
-                    <!-- Local Experts -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title">Local Experts</h2>
@@ -610,24 +743,36 @@
                         <ul class="data-list">
                             <li style="align-items:flex-start;">
                                 <div style="display:flex; gap:15px;">
-                                    <div class="profile-img" style="background:#10b981; color:white; width:40px; height:40px; flex-shrink:0;"><i class="fa-solid fa-user-tie"></i></div>
+                                    <div class="profile-img"
+                                        style="background:#10b981; color:white; width:40px; height:40px; flex-shrink:0;">
+                                        <i class="fa-solid fa-user-tie"></i>
+                                    </div>
                                     <div>
                                         <strong style="font-size:15px;">Dr. Ramesh (TNAU)</strong>
-                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Horticulture & Pest Control</p>
+                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Horticulture &
+                                            Pest Control</p>
                                         <a href="404.html">
-                                        <button class="btn btn-outline" style="padding:4px 8px; font-size:12px; margin-top:5px;"><i class="fa-brands fa-whatsapp"></i> Chat</button>
+                                            <button class="btn btn-outline"
+                                                style="padding:4px 8px; font-size:12px; margin-top:5px;"><i
+                                                    class="fa-brands fa-whatsapp"></i> Chat</button>
                                         </a>
                                     </div>
                                 </div>
                             </li>
                             <li style="align-items:flex-start;">
                                 <div style="display:flex; gap:15px;">
-                                    <div class="profile-img" style="background:#3b82f6; color:white; width:40px; height:40px; flex-shrink:0;"><i class="fa-solid fa-seedling"></i></div>
+                                    <div class="profile-img"
+                                        style="background:#3b82f6; color:white; width:40px; height:40px; flex-shrink:0;">
+                                        <i class="fa-solid fa-seedling"></i>
+                                    </div>
                                     <div>
                                         <strong style="font-size:15px;">Murugan Organics</strong>
-                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Organic Fertilizer Guide</p>
+                                        <p style="font-size:12px; color:var(--text-muted); margin:3px 0;">Organic
+                                            Fertilizer Guide</p>
                                         <a href="404.html">
-                                        <button class="btn btn-outline" style="padding:4px 8px; font-size:12px; margin-top:5px;"><i class="fa-solid fa-phone"></i> Call</button>
+                                            <button class="btn btn-outline"
+                                                style="padding:4px 8px; font-size:12px; margin-top:5px;"><i
+                                                    class="fa-solid fa-phone"></i> Call</button>
                                         </a>
                                     </div>
                                 </div>
@@ -635,21 +780,28 @@
                         </ul>
                     </div>
 
-                    <!-- NEW CONTENT: Farmers Forum -->
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title">Farmers Forum (Q&A)</h2>
                             <a href="404.html">
-                            <button class="btn" style="background:var(--secondary-light); color:var(--secondary); padding:4px 10px; font-size:12px;">Ask Question</button>
+                                <button class="btn"
+                                    style="background:var(--secondary-light); color:var(--secondary); padding:4px 10px; font-size:12px;">Ask
+                                    Question</button>
                             </a>
                         </div>
-                        <div style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
-                            <strong style="font-size:14px; color:var(--text-main);">"Yellow spots on turmeric leaves, what to spray?"</strong>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Velu, Erode • 3 Answers</p>
+                        <div
+                            style="background: var(--bg-color); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <strong style="font-size:14px; color:var(--text-main);">"Yellow spots on turmeric leaves,
+                                what to spray?"</strong>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Velu, Erode • 3
+                                Answers</p>
                         </div>
                         <div style="background: var(--bg-color); padding: 15px; border-radius: 8px;">
-                            <strong style="font-size:14px; color:var(--text-main);">"Current rental price for JCB per hour?"</strong>
-                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Selvam, Salem • 8 Answers</p>
+                            <strong style="font-size:14px; color:var(--text-main);">"Current rental price for JCB per
+                                hour?"</strong>
+                            <p style="font-size:12px; color:var(--text-muted); margin-top:5px;">Asked by Selvam, Salem •
+                                8 Answers</p>
                         </div>
                     </div>
                 </div>
@@ -659,7 +811,7 @@
     </div>
 
     <script>
-        // 1. Date Setup
+
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
         document.getElementById('dateString').innerText = new Date().toLocaleDateString('en-IN', dateOptions);
 
@@ -676,18 +828,16 @@
         document.getElementById('userEmailDisplay').innerText = userEmail;
         document.getElementById('profileInitial').innerText = formattedName.charAt(0);
 
-        // 3. LOGOUT FUNCTION (NEW)
+
         function logoutUser() {
-            //if(confirm("Are you sure you want to logout?"))//
-             {
-                localStorage.removeItem('userEmail'); // Clear session
-                // Redirect to login page - Change 'login.html' to your actual login page file name
-                window.location.href = "index.html"; 
+
+            {
+                localStorage.removeItem('userEmail');
+                window.location.href = "index.html";
             }
         }
 
-        // 4. Sidebar & Navigation Logic
-        const navItems = document.querySelectorAll('.nav-item:not(.logout-btn)'); // Exclude logout button from view toggling
+        const navItems = document.querySelectorAll('.nav-item:not(.logout-btn)');
         const views = document.querySelectorAll('.view-section');
         const pageTitle = document.getElementById('pageTitle');
         const sidebar = document.getElementById('sidebar');
@@ -711,25 +861,25 @@
                 document.getElementById(targetView).classList.add('active');
                 pageTitle.innerText = item.innerText;
 
-                // Close sidebar on mobile after clicking
-                if(window.innerWidth <= 992) { closeSidebar(); }
 
-                // Render Chart only once
-                if(targetView === 'finance-view' && !chartRendered) {
+                if (window.innerWidth <= 992) { closeSidebar(); }
+
+
+                if (targetView === 'finance-view' && !chartRendered) {
                     renderFinanceChart();
                     chartRendered = true;
                 }
             });
         });
 
-        // Mobile Menu Toggle events
+
         menuToggle.addEventListener('click', () => {
             sidebar.classList.add('active');
             sidebarOverlay.classList.add('active');
         });
         sidebarOverlay.addEventListener('click', closeSidebar);
 
-        // 5. Chart.js Setup for Finance
+
         function renderFinanceChart() {
             const ctx = document.getElementById('financeChart').getContext('2d');
             new Chart(ctx, {
@@ -761,4 +911,5 @@
         }
     </script>
 </body>
+
 </html>
